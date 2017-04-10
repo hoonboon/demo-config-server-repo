@@ -2,6 +2,7 @@
 # reference links
 http://www.baeldung.com/spring-cloud-configuration
 http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html#keytool_examples
+https://github.com/spring-cloud-samples/configserver
 
 # using git
 $ curl http://user:pword@localhost:8888/demo-01/dev/master
