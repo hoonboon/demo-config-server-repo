@@ -1,0 +1,20 @@
+
+# reference links
+http://www.baeldung.com/spring-cloud-configuration
+http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html#keytool_examples
+
+# using git
+$ curl http://user:pword@localhost:8888/demo-01/dev/master
+
+# config client
+$ curl http://user:pword@localhost:8080/whoami/Mr_Pink
+
+$ keytool -genkeypair -alias config-server-key -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -dname 'CN=Demo Config Server,OU=Spring Cloud,O=hoonboon.com' -keypass my-key-s3cr3t -keystore demo-config-server.jks  -storepass my-store-s3cr3t
+
+# copy the generated keystore file "demo-config-server.jks" into the config server classpath
+
+$ export PASSWORD=$(curl -X POST --data-urlencode ang3L http://user:pword@localhost:8888/encrypt)
+$ echo "user.password={cipher}$PASSWORD" >> demo-01-dev.properties
+$ git commit -am 'Added encrypted password'
+$ curl -X POST http://user:pword@localhost:8888/refresh
+$ curl -X POST http://user:pword@localhost:8080/refresh
